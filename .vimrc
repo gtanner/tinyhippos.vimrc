@@ -16,7 +16,12 @@ set nobackup
 set nowb
 set noswapfile
 
+" allow switching of buffers without saving 
+" with great power comes great responsibility
+set hidden
+
 set number
+set title
 set wrap!
 syntax on
 
@@ -34,7 +39,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>g :!git grep 
 
 
 function! CmdLine(str)
