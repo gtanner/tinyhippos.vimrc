@@ -39,7 +39,6 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSearch('gv')<CR>
-map <leader>g :!git grep 
 
 
 function! CmdLine(str)
@@ -87,6 +86,13 @@ map <C-l> <C-W>l
 "map <right> :bn<cr>
 "map <left> :bp<cr>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Building javascript (jslint)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set makeprg=cat\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
+set errorformat=%f:%l:%c:%m
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Parenthesis/bracket expanding
@@ -149,10 +155,3 @@ nnoremap <silent> <C-f><C-e> :FufEditInfo<CR>
 nnoremap <silent> <C-f><C-r> :FufRenewCache<CR>
 nnoremap <silent> <C-e><C-f> :NERDTreeToggle<CR>
 nnoremap <silent> <C-e><C-t> :TlistToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => JSLint
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F4> :JSLintLight<CR>
-nnoremap <silent> <F5> :JSLint<CR>
-nnoremap <silent> <F6> :JSLintClear<CR>:cclose<CR>
