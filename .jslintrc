@@ -1,3 +1,2 @@
-/*jslint white: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: false, sub: true, nomen: false, bitwise: true, regexp: true, newcap: true, strict: false */
-/*global jQuery, $, SafePlug, window, console, document, localStorage, XMLHttpRequest, jsUnityRunner, jsUnity, XPathEvaluator, XPathResult, tinyHippos, setTimeout, Widget, widget, chrome, location, screen, navigator, escape, jsonObject, alert*/
+/*global jQuery, $, SafePlug, window, console, document, localStorage, XMLHttpRequest, jsUnityRunner, jsUnity, XPathEvaluator, XPathResult, tinyHippos, setTimeout, Widget, widget, chrome, location, screen, navigator, escape, jsonObject, alert, openDatabase*/
 

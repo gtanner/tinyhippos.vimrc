@@ -5761,19 +5761,29 @@ while (true) {
 }
 
 var boolOptions = {
-    bitwise    : true, // if bitwise operators should not be allowed
-    eqeqeq     : true, // if === should be required
-    glovar     : true, // if HTML fragments should be allowed
-    regexp     : true, // if the . should not be allowed in regexp literals
-    undef      : true, // if variables should be declared before used
-    white      : true, // if strict whitespace rules apply
-    onevar     : true, //one var statement per block
-    browser    : false, // if the standard browser globals should be predefined
-    newcap     : true,
-    strict     : false,
-    plusplus   : false, // if increment/decrement should not be allowed
-    sub        : true,
-    nomen      : false // if names should be checked
+    white: true,
+    bitwise : true,
+    browser : true,
+    cap : false,
+    css : true,
+    debugger : false,
+    forin : false,
+    indent: 4,
+    onevar: true,
+    nomen: false,
+    maxlen : 200,
+    regexp : false,
+    newcap : true,
+    undef : true,
+    plusplus: false,
+    strict: false,
+    eqeqeq: true,
+    evil: false,
+    laxbreak: false,
+    immed: true,
+    sub: true,
+    devel: true,
+    gettersetter: true
 };
 
 
