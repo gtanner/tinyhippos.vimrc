@@ -5728,9 +5728,6 @@ SOFTWARE.
    http://blog.ianbicking.org/jslint-command-line.html
 */
 
-/* SpiderMonkey globals */
-/*global jQuery, $, SafePlug, window, console, document, localStorage, XMLHttpRequest, jsUnityRunner, jsUnity, XPathEvaluator, XPathResult, tinyHippos, setTimeout, Widget, widget, chrome, location, screen, navigator, escape, jsonObject, alert*/
-
 // wget http://www.jslint.com/fulljslint.js
 
 var filename = arguments[0];

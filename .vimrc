@@ -91,7 +91,7 @@ map <C-l> <C-W>l
 " => Building javascript (jslint)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set makeprg=cat\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
+set makeprg=cat\ \~/.jslintrc\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
 set errorformat=%f:%l:%c:%m
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
