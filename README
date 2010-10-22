@@ -4,4 +4,27 @@ These are just a starting point, feel free to edit them as you wish.
 
 Just copy to your home dir and enjoy.
 
+Requirements:
+
+Ack plugin:
+
+NOTE: You must, of course, install the ack script
+in your path.
+On Ubuntu:
+sudo apt-get install ack-grep
+ln -s /usr/bin/ack-grep /usr/bin/ack
+With MacPorts:
+sudo port install p5-app-ack
+
+jsLint plugin:
+
+This is currently a hack of a plugin that we have been working on (combining a couple other plugins out there)
+there is a hardcoded path to the .jslintrc at the bottom of the plugin script you will need to edit to
+have this work for you.
+
+ConqueTerm:
+
+This plugin requires vim to be build with python.
+
+
 Gord

@@ -86,12 +86,15 @@ map <C-l> <C-W>l
 "map <right> :bn<cr>
 "map <left> :bp<cr>
 
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Building javascript (jslint)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set makeprg=cat\ \~/.jslintrc\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
+set makeprg=cat\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
 set errorformat=%f:%l:%c:%m
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,6 +114,7 @@ inoremap $3 {}<esc>i
 inoremap $4 {<esc>o}<esc>O
 inoremap $q ''<esc>i
 inoremap $e ""<esc>i
+inoremap $q ''<esc>i
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -119,6 +123,18 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => RDOC preview
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -nargs=0 RDocPreview call RDocRenderBufferToPreview()
+
+function! RDocRenderBufferToPreview()
+let rdocoutput = "/tmp/vimrdoc/"
+call system("rdoc " . bufname("%") . " --op " . rdocoutput)
+call system("chromiu    chromiu chromium-browser ". rdocoutput . "index.html")
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FuzzyFinder awesomeness
