@@ -24,6 +24,7 @@ set number
 set title
 set wrap!
 syntax on
+set nofoldenable
 
 autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
