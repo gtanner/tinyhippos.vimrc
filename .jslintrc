@@ -21,6 +21,8 @@ var JSLINTRC_OPTIONS = {   "predef": [ "DOMDocument",
                 "navigator",
                 "XPathEvaluator",
                 "XPathResult",
+                "ThreeDee",
+                "Draw",
                 "arguments",
                 "screen",
                 "sinon"
