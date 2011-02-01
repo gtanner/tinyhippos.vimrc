@@ -30,6 +30,9 @@ autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
 set expandtab
 
+" save with \s to make me happy
+noremap <Leader>s :update<CR>
+
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
