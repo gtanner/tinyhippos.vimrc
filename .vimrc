@@ -26,6 +26,8 @@ set wrap!
 syntax on
 set nofoldenable
 
+au! BufRead,BufNewFile Jakefile     setfiletype javascript
+
 autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
 set expandtab
@@ -98,8 +100,9 @@ set guioptions-=r  "remove right-hand scroll bar
 " => Building javascript (jslint)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set makeprg=cat\ %\ \\\|\ js\ \~/.vim/plugin/jslint/lint.js\ %
+set makeprg=node-hint\ %\ --config\ '$HOME/.vim/plugin/jshint/.jslintrc'\ --reporter\ '$HOME/.vim/plugin/jshint/reporter.js'
 set errorformat=%f:%l:%c:%m
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Parenthesis/bracket expanding
