@@ -16,11 +16,11 @@ ln -s /usr/bin/ack-grep /usr/bin/ack
 With MacPorts:
 sudo port install p5-app-ack
 
-jsLint plugin:
+jsHint plugin:
 
-This is currently a hack of a plugin that we have been working on (combining a couple other plugins out there)
-there is a hardcoded path to the .jslintrc at the bottom of the plugin script you will need to edit to
-have this work for you.
+Currently this uses https://github.com/brentlintner/node-hint to run linting on the file.
+The configuration is stored in: https://github.com/gtanner/tinyhippos.vimrc/tree/master/.vim/plugin/jshint
+Feel free to symlink your standard .jslintrc file to this location
 
 ConqueTerm:
 
