@@ -4,6 +4,26 @@ source $VIMRUNTIME/mswin.vim
 
 behave mswin
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files and backups
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set rtp+=~/.vim/vundle.git/ 
+call vundle#rc()
+
+" Bundles:
+Bundle "L9"
+Bundle "FuzzyFinder"
+Bundle "The-NERD-tree"
+Bundle "The-NERD-Commenter"
+Bundle "ack.vim"
+Bundle "snipMate"
+Bundle "tagList"
+Bundle "Color-Sampler-Pack"
+Bundle "twilight256.vim"
+Bundle "Javascript-Indentation"
+Bundle "go.vim"
+
 " feel free to choose :set background=light for a different style 
 set background=dark 
 colors twilight256 
@@ -26,7 +46,7 @@ set wrap!
 syntax on
 set nofoldenable
 
-au! BufRead,BufNewFile Jakefile     setfiletype javascript
+au BufRead,BufNewFile {Jakefile,*.yaml}  set ft=javascript
 
 autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
@@ -130,18 +150,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => RDOC preview
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -nargs=0 RDocPreview call RDocRenderBufferToPreview()
-
-function! RDocRenderBufferToPreview()
-let rdocoutput = "/tmp/vimrdoc/"
-call system("rdoc " . bufname("%") . " --op " . rdocoutput)
-call system("chromiu    chromiu chromium-browser ". rdocoutput . "index.html")
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FuzzyFinder awesomeness
