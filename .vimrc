@@ -6,7 +6,7 @@ behave mswin
 
 " feel free to choose :set background=light for a different style 
 set background=dark 
-colors peaksea 
+colors twilight256 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and backups
