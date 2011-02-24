@@ -4,6 +4,8 @@ These are just a starting point, feel free to edit them as you wish.
 
 Just copy to your home dir and enjoy.
 
+remember to run :BundleInstall to get all of the plugins
+
 Requirements:
 
 Ack plugin:
@@ -21,10 +23,6 @@ jsHint plugin:
 Currently this uses https://github.com/brentlintner/node-hint to run linting on the file.
 The configuration is stored in: https://github.com/gtanner/tinyhippos.vimrc/tree/master/.vim/plugin/jshint
 Feel free to symlink your standard .jslintrc file to this location
-
-ConqueTerm:
-
-This plugin requires vim to be build with python.
 
 
 Gord
