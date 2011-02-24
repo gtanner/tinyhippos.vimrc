@@ -21,8 +21,8 @@ Bundle "snipMate"
 Bundle "tagList"
 Bundle "Color-Sampler-Pack"
 Bundle "twilight256.vim"
-Bundle "Javascript-Indentation"
 Bundle "go.vim"
+Bundle "ZenCoding.vim"
 
 " feel free to choose :set background=light for a different style 
 set background=dark 
@@ -46,7 +46,8 @@ set wrap!
 syntax on
 set nofoldenable
 
-au BufRead,BufNewFile {Jakefile,*.yaml}  set ft=javascript
+au BufRead,BufNewFile {Jakefile,*.yaml,*.js}     set ft=javascript
+
 
 autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
