@@ -1,12 +1,14 @@
 set nocompatible
+
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 
 behave mswin
 
 " feel free to choose :set background=light for a different style 
+let g:solarized_termcolors=256
+colors solarized 
 set background=dark 
-colors twilight256 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files and backups
@@ -15,6 +17,11 @@ colors twilight256
 set nobackup
 set nowb
 set noswapfile
+
+" Show the time in the status line
+"set ruler
+"set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
+
 
 " allow switching of buffers without saving 
 " with great power comes great responsibility
@@ -27,6 +34,9 @@ syntax on
 set nofoldenable
 
 au! BufRead,BufNewFile Jakefile     setfiletype javascript
+au! BufRead,BufNewFile *.json        setfiletype javascript
+au! BufRead,BufNewFile *.sjs        setfiletype javascript
+au! BufRead,BufNewFile *.ejs        setfiletype html
 
 autocmd FileType * set tabstop=4|set shiftwidth=4
 autocmd FileType ruby set tabstop=2|set shiftwidth=2
@@ -34,44 +44,6 @@ set expandtab
 
 " save with \s to make me happy
 noremap <Leader>s :update<CR>
-
-""""""""""""""""""""""""""""""
-" => Visual mode related
-""""""""""""""""""""""""""""""
-" Really useful!
-"  In visual mode when you press * or # to search for the current selection
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
-" When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSearch('gv')<CR>
-
-
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction 
-
-" From an idea by Michael Naumann
-function! VisualSearch(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs and buffers
@@ -100,28 +72,8 @@ set guioptions-=r  "remove right-hand scroll bar
 " => Building javascript (jslint)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set makeprg=node-hint\ %\ --config\ '$HOME/.vim/plugin/jshint/.jslintrc'\ --reporter\ '$HOME/.vim/plugin/jshint/reporter.js'
+set makeprg=jshint\ %\ --config\ '$HOME/.vim/plugin/jshint/.jslintrc'\ --reporter\ '$HOME/.vim/plugin/jshint/reporter.js'
 set errorformat=%f:%l:%c:%m
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vnoremap $1 <esc>`>a)<esc>`<i(<esc>
-vnoremap $2 <esc>`>a]<esc>`<i[<esc>
-vnoremap $3 <esc>`>a}<esc>`<i{<esc>
-vnoremap $$ <esc>`>a"<esc>`<i"<esc>
-vnoremap $q <esc>`>a'<esc>`<i'<esc>
-vnoremap $e <esc>`>a"<esc>`<i"<esc>
-
-" Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
-inoremap $q ''<esc>i
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -130,18 +82,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => RDOC preview
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! -nargs=0 RDocPreview call RDocRenderBufferToPreview()
-
-function! RDocRenderBufferToPreview()
-let rdocoutput = "/tmp/vimrdoc/"
-call system("rdoc " . bufname("%") . " --op " . rdocoutput)
-call system("chromiu    chromiu chromium-browser ". rdocoutput . "index.html")
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FuzzyFinder awesomeness

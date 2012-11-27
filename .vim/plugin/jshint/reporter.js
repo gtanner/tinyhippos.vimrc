@@ -1,4 +1,4 @@
-function reporter(results) {
+module.exports.reporter = function reporter(results) {
     var sys = require('sys'),
         len = results.length,
         str = '',
@@ -14,4 +14,4 @@ function reporter(results) {
 
         sys.puts(str);
     }
-}
+};
