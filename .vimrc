@@ -5,9 +5,10 @@ source $VIMRUNTIME/mswin.vim
 
 behave mswin
 
+set t_Co=256
+
 " feel free to choose :set background=light for a different style 
-let g:solarized_termcolors=256
-colors solarized 
+colors zenburn 
 set background=dark 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,11 +60,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Use the arrows to something usefull
-" Seems cool, but would need to get used to it :)
-"map <right> :bn<cr>
-"map <left> :bp<cr>
-
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -82,6 +78,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlP'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => FuzzyFinder awesomeness
